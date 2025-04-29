@@ -1,6 +1,7 @@
 from playwright.sync_api import sync_playwright
 from flask import Flask, jsonify, request
 import time
+import os
 
 app = Flask(__name__)
 
@@ -184,4 +185,4 @@ def get_plant(plant_name):
         page += 1  # Move to the next page
 
 if __name__ == '__main__':
-    app.run(debug=True)
+       app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)), debug=True)
